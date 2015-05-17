@@ -366,7 +366,7 @@ func (hcmt *HTTPCorpMemberTracker) update() {
 	newNames := map[string]bool{}
 	scanner := bufio.NewScanner(resp.Body)
 	for scanner.Scan() {
-		newNames[scanner.Text()] = true
+		newNames[strings.ToLower(scanner.Text())] = true
 	}
 	if err := scanner.Err(); err != nil {
 		log.Printf("Error reading registered member list: %s", err)
