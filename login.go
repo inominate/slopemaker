@@ -25,7 +25,7 @@ func displayLogin(w http.ResponseWriter, req *http.Request, ses Session) {
 		Title string
 		Error string
 	}
-	data := loginData{Error: ses.Get("loginError"), Title: "Purger Login"}
+	data := loginData{Error: ses.Get("loginError"), Title: "SlopeMaker Login"}
 	ses.Set("loginError", "")
 
 	err = loginTemplate.Execute(w, data)
