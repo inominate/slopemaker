@@ -309,8 +309,9 @@ func membersUpdater(apiClient *apicache.Client, keyid int64, vcode string, maxId
 				}
 				if !registered {
 					m.Reason += "Unregistered."
+					regName := m.Name
 					m.IsRegistered = func() bool {
-						return cmt.IsRegistered(m.Name)
+						return cmt.IsRegistered(regName)
 					}
 				}
 
