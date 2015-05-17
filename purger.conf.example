@@ -1,0 +1,54 @@
+# Purger Config
+[purger]
+listen = :8080
+#
+# ENV will get the port from the PORT env variable for use with dokku/heroku.
+# listen = ENV
+
+#Corporation API key, requires the MemberTrackingExtended permission.
+keyid =  
+vcode = 
+
+#Max time since last login
+maxIdleDays = 90
+
+# Required boltdb, used for persisting data, must be writable.
+boltDB = purge.db
+
+## Base URL for accessing API via a proxy, comment out to use CCP directly.
+# APIBaseURL = http://localhost:3748/
+
+# Optional comma separated list of exempt characters.
+# exemptCharacters = Vile Rat
+
+# Optional Roles to exempt character from removal.
+# 1					Director
+# 2048				Station Manager
+# 9007199254740992	Starbase Config
+# exemptRoles = 1, 2048, 9007199254740992
+
+[registered_characters]
+# Registered user verification. Ensure that characters are registered with an 
+# external system. To enable, specify either URL or DSN but not both.
+
+# URL Checking will look at given url for a list of all registered characters.
+# The user list is expected to be plain text with one character name per line.
+# URL = 
+
+# Database Checking will check a database directly for registered characters.
+# DSN = username:password@tcp(host:3306)/database?parseTime=true
+
+# Queries necessary for DB checking.
+#
+# all_query expects a query to return a set of all registered character names.
+# all_query = select characterName from characters;
+#
+# single_query expects a query to check if a single character is registered.
+# single_query select characterName from characters where characterName = ? 
+
+
+[auth]
+# Add users here. kill -HUP the purger will cause this list(as well as the 
+# exempt characters/roles) to be reloaded.
+
+# username = password
