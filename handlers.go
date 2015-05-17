@@ -302,7 +302,7 @@ func handleRoot(w http.ResponseWriter, r *http.Request, ses Session) {
 		log.Printf("Template error: %s", err)
 		return
 	}
-	err = rootTemplate.Execute(w, map[string]string{"Title": "Goonwaffe Purger"})
+	err = rootTemplate.Execute(w, map[string]string{"Title": "Slope Maker"})
 	if err != nil {
 		log.Printf("Template Error: %s", err)
 	}
