@@ -341,7 +341,7 @@ func printStats(w io.Writer) {
 	fmt.Fprintf(w, "Total: %d  Claimed: %d  ToBePurged:  %d\n", totalMembers, claimed, needsPurged)
 	fmt.Fprintf(w, "ToBeStripped: %d  InStasis: %d\n\n--------------\n", needsStripped, inStasis)
 	for _, m := range toBePurged {
-		fmt.Fprintf(w, "%s\n", m.Name)
+		fmt.Fprintf(w, "%s	%s\n", m.Name, m.Reason)
 	}
 
 	log.Printf("Total: %d  Claimed: %d  ToBePurged:  %d", totalMembers, claimed, needsPurged)
