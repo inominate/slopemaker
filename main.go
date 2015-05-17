@@ -151,7 +151,7 @@ func main() {
 		log.Fatalf("Need a boltDB file specified for the bolt database.")
 	}
 
-	bdb, err = bolt.Open("purger.db", 0644, &bolt.Options{Timeout: 100 * time.Millisecond})
+	bdb, err = bolt.Open(dbfile, 0644, &bolt.Options{Timeout: 100 * time.Millisecond})
 	if err != nil {
 		log.Fatalf("Failed to open db: %s", err)
 	}
