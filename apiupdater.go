@@ -314,6 +314,10 @@ func membersUpdater(apiClient *apicache.Client, keyid int64, vcode string, maxId
 						return cmt.IsRegistered(regName)
 					}
 				}
+				if m.Reason == "" {
+					log.Printf("I'm supposed to kick %s but I don't know why.\n%#v", m.Name, m)
+					continue
+				}
 
 				newPurge[mt.CharacterID] = &m
 			}
